@@ -76,7 +76,7 @@ console.table(pessoa)
 console.log ('******************************************************************************************************************')
 
 //criando um objeto vazio e so depois adicionando:
-console.log('Criando objeto e adicionando coisinhas:')
+console.log('Criando objeto e adicionando coisinhas: (Objeto denominado: carro)')
 
 let carro = {}
 
@@ -93,3 +93,32 @@ console.table(carro)
 delete carro.ano
 
 console.table(carro)
+
+console.log ('******************************************************************************************************************')
+
+console.log('Exibir as propriedades do objeto usando for in:')
+//EXIBINDO AS PROPRIEDADES DE UM OBJETO
+    //for in determina quais as propriedades de um objeto e coloca 
+    //cada uma delas em uma variavel informada pelo usuario (p, no caso)
+    //a cada iteração do loop
+
+console.log('Propriedades do objeto pessoas:')
+for(let p in pessoa){
+    console.log(p)
+}
+
+console.log('------------------------------------------')
+
+console.log('Exibir as propriedades do objeto carro:')
+for(let c in carro){
+    console.log(c)
+}
+
+console.log('------------------------------------------')
+
+//for in para listar propriedades e valores de um objeto
+//utilizando uma variavel para atributo 
+//e acessando aquela posição dentro do objeto em si 
+for(let atrib in pessoa){
+    console.log(atrib + ' -> ' + pessoa[atrib])
+}

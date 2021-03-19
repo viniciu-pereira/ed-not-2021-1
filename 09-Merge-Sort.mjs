@@ -8,6 +8,9 @@ contendo n elementos até obter N vetores de apenas 1 elemento cada.
 */
 
 //********************************************************************************************************************************************
+//estatistica
+let comparacoes, divisoes, juncoes 
+
 function mergeSort(vetor){
 
     function mesclar(vetEsq, vetDir){
@@ -22,6 +25,7 @@ function mergeSort(vetor){
                 vetRes.push(vetDir[pDir])
                 pDir++
             }
+            comparacoes++
         }
         //Descobrir de qual lado sobrou
 
@@ -48,8 +52,9 @@ function mergeSort(vetor){
         //caso o segundo parametro de slice seja omitido, serao copiados os elementos desde a posicao informada ate a final
             //o resto desde aqla posicao
         let vetDir = vetor.slice(meio)
+        divisoes++
 
-        console.log({vetEsq, vetDir})
+        //console.log({vetEsq, vetDir})
 
         //chamadas recursivas à funcao
             //dentro de uma funcao, se chama ela mesma
@@ -57,13 +62,29 @@ function mergeSort(vetor){
         vetDir = mergeSort(vetDir) //depois do lado esquerdo, faz essa funcao ate ficar totalmente picado
 
         const vetFinal = mesclar(vetEsq, vetDir) 
-        console.log({vetFinal})
+        juncoes++
+        //console.log({vetFinal})
         return vetFinal
         
     }
 
-    return vetor // vetor de 1 elemento nao modificado
+    return vetor // vetor de 1 elemento nao modificado, condicao de saida
 }
 
+comparacoes = 0, divisoes = 0, juncoes = 0
 let vetorTeste = [7,4,9,0,6,1,8,2,5,3]
 mergeSort(vetorTeste)
+
+console.log({comparacoes, divisoes, juncoes})
+
+
+import { nomes } from './includes/100-mil-nomes.mjs'
+
+comparacoes = 0, divisoes = 0, juncoes = 0
+console.time('Ordenando nomes...')
+const nomesOrd = mergeSort(nomes)
+console.timeEnd('Ordenando nomes...')
+let memoria = process.memoryUsage().heapUsed / 1024 / 1024 
+
+console.log('Depois:', nomesOrd)
+console.log({comparacoes, divisoes, juncoes, memoria})

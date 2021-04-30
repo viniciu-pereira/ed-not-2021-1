@@ -25,7 +25,7 @@ function buscaBinaria(vetor, fnComp) {
 
 // A função de comparação para a busca binária precisa retornar um de três valores:
 // retorno  0: o valor de busca e o valor no objeto são IGUAIS
-// retorno -1: o valor de busca é MENOR que o valor no objeto
+// retorno -1: o o valor de busca e o valor no objeto são IGUAIS
 // retorno  1: o valor de busca é MAIOR que o valor no objeto
 const comparaNome = (obj, busca = 'FAUSTO') => {
     if(busca === obj.first_name) return 0

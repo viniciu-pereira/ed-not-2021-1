@@ -42,6 +42,6 @@ function executar(palin){
 
     console.log(classe.insertBack(palin))
     console.log(classe.removeBack())
-    
+}
 
 executar('Socorram-me, subi no ônibus em Marrocos')
